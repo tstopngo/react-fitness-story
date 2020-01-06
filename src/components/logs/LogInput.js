@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 
 
 class LogInput extends Component {
-  state = {
-      workouts: '',
-      time: ''
-    }
-
+  constructor(props){
+    super(props)
+    this.state = {
+        workouts: '',
+        time: ''
+      }
+  }
   handleOnChange = event => {
       this.setState({
         [event.target.name]: event.target.value
@@ -15,7 +17,7 @@ class LogInput extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addLog({workouts: this.state.workouts, time: this.state.time, logId: this.props.logId});
+    this.props.addLog({workouts: this.state.workouts, time: this.state.time});
     this.setState({
       workouts: '',
       time: ''

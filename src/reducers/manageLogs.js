@@ -5,8 +5,8 @@ export default function manageLogs(state={logs: [], comments: []}, action) {
     case 'ADD_LOG':
       const log = {
         id: uuid(),
-        workouts: action.workouts,
-        time: action.time
+        workouts: action.log.workouts,
+        time: action.log.time
       }
       return {...state, logs: [...state.logs, log]}
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const link = {
   width: '100px',
@@ -17,9 +16,9 @@ function App() {
 
     <div className="App">
       <h1>Welcome to Fitness Story!</h1>
-      <NavLink to='/'  exact style={link}> Home </NavLink>
-      <NavLink to='/logs/new'  exact style={link}> New Log </NavLink>
-      <NavLink to='/logs'  exact style={link}> See All Logs</NavLink>
+        <NavLink to='/'  exact style={link}> Home </NavLink>
+        <NavLink to='/logs/new'  exact style={link}> New Log </NavLink>
+        <NavLink to='/logs'  exact style={link}> See All Logs</NavLink>
     </div>
 
   );
