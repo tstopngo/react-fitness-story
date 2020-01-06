@@ -7,14 +7,22 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import {createStore, applyMiddleware} from 'redux'
 import manageLogs from './reducers/manageLogs'
-
 import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
+
+import LogInput from './components/logs/LogInput'
+import Logs from './components/logs/Logs'
+
+
 
 const store = createStore(manageLogs, applyMiddleware(thunk))
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+        <Route exact path='/logs/new' component={LogInput} />
+        <Route exact path='/logs' component={Logs} />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );

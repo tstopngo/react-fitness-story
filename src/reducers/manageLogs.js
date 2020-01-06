@@ -1,7 +1,5 @@
 import uuid from 'uuid';
 
-
-
 export default function manageLogs(state={logs: [], comments: []}, action) {
   switch(action.type) {
     case 'ADD_LOG':
