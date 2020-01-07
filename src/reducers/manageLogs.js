@@ -14,6 +14,17 @@ export default function manageLogs(state={logs: [], comments: []}, action) {
       const logs = state.logs.filter(log => log.id !== action.id)
       return {...state, logs}
 
+    case 'ADD_COMMENT':
+        const comment = {
+          id: uuid(),
+          text: action.comment.text,
+        }
+        return {...state, comments: [...state.comments, comment]}
+
+    case 'DELETE_COMMENT':
+        const comments = state.comments.filter(comment => comment.id !== action.id)
+        return {...state, comments}
+
     default:
       return state;
   }

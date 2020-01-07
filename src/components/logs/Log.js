@@ -1,28 +1,29 @@
 import React, {Component} from 'react';
+import CommentsContainer from '../../containers/CommentsContainer'
 
 class Log extends Component {
 
-  handleOnClick(){
+  handleOnClick() {
     this.props.deleteLog(this.props.log.id);
   }
 
   render(){
 
-    const {log} = this.props;
+    const { log } = this.props;
 
     return(
       <div>
         <li>
-          <p> Workouts: {log.workouts} </p>
+
+          <p> Workouts: {log.workouts} <button onClick={() => this.handleOnClick()}> Remove </button> </p>
           <p> Time: {log.time} </p>
-          <button onClick={() => this.handleOnClick()}>Delete</button>
+
+          <CommentsContainer log={log}/>
         </li>
       </div>
     )
 
   }
 }
-
-
 
 export default Log;

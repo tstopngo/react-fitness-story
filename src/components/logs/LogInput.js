@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 class LogInput extends Component {
   constructor(props){
     super(props)
