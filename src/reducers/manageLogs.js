@@ -17,6 +17,7 @@ export default function manageLogs(state={logs: [], comments: []}, action) {
     case 'ADD_COMMENT':
         const comment = {
           id: uuid(),
+          logId: action.comment.logId,
           text: action.comment.text,
         }
         return {...state, comments: [...state.comments, comment]}

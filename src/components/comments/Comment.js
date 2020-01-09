@@ -9,12 +9,10 @@ class Comment extends Component {
   render(){
 
     const { comment } = this.props;
-
     return(
       <div>
         <li>
           <p>Comment: {comment.text} <button onClick={() => this.handleOnClick()}> Remove </button></p>
-
         </li>
       </div>
     )

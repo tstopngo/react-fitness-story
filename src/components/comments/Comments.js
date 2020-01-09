@@ -4,8 +4,9 @@ import Comment from './Comment'
 class Comments extends Component{
   render(){
 
-    const {comments, deleteComment} = this.props;
-    const commentsList = comments.map(comment =>
+    const {comments, logId, deleteComment} = this.props;
+    const associatedComments = comments.filter(comment => comment.logId === logId);
+    const commentsList = associatedComments.map(comment =>
       <Comment key={comment.id} comment={comment} deleteComment={deleteComment}/>)
 
     return(

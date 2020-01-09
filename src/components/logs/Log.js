@@ -14,10 +14,8 @@ class Log extends Component {
     return(
       <div>
         <li>
-
           <p> Workouts: {log.workouts} <button onClick={() => this.handleOnClick()}> Remove </button> </p>
           <p> Time: {log.time} </p>
-
           <CommentsContainer log={log}/>
         </li>
       </div>
