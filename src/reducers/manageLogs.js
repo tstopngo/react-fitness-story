@@ -1,14 +1,31 @@
 import uuid from 'uuid';
 
-export default function manageLogs(state={logs: [], comments: []}, action) {
+export default function manageLogs(state={logs: [], comments: [], loading: false}, action) {
   switch(action.type) {
+    case 'LOADING_LOGS':
+      return{
+        ...state,
+        logs: [...state.logs],
+        loading: true
+      }
+
+    case 'ADD_LOGS':
+      return {
+        ...state,
+        logs: action.logs,
+        loading: false
+      }
+
     case 'ADD_LOG':
       const log = {
-        id: uuid(),
-        workouts: action.log.workouts,
-        time: action.log.time
-      }
-      return {...state, logs: [...state.logs, log]}
+         id: action.log.id,
+         workouts: action.log.workouts,
+         time: action.log.time,
+     }
+
+     return{
+       ...state, logs: [...state.logs, log]
+     }
 
     case 'DELETE_LOG':
       const logs = state.logs.filter(log => log.id !== action.id)
