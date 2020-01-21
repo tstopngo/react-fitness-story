@@ -1,14 +1,14 @@
-export const addLog = (data) => {
+export const addLog = (data, history) => {
   return(dispatch) => {
-    fetch('http://localhost:3000/logs', {
+    return fetch('http://localhost:3000/api/v1/logs', {
       headers:{
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
         method: 'POST',
-        body: JSON.stringify(data)
+        body: JSON.stringify({log: data})
     })
       .then(response => response.json())
-      .then(log => dispatch({type: 'ADD_LOG', payload: log}))
+      .then(log => dispatch({type: 'ADD_LOG', log: log}))
   }
 }

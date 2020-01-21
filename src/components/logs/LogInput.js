@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import { withRouter} from 'react-router-dom'
 
 class LogInput extends Component {
   constructor(props){
     super(props)
     this.state = {
         workouts: '',
-        time: ''
+        time: '',
       }
   }
   handleOnChange = event => {
@@ -16,15 +17,19 @@ class LogInput extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.addLog({workouts: this.state.workouts, time: this.state.time});
-    this.setState({
-      workouts: '',
-      time: ''
+
+    this.props.addLog(this.state).then(r=> r.json()).then(data => {
+      //if error, show error
+
+      //else
+    //  this.props.history.push('/logs')
     })
+    this.props.history.push('/logs')
   }
 
   render(){
     return(
+
       <div>
         <h1> Add New Log</h1>
         <form onSubmit={this.handleOnSubmit}>
@@ -35,8 +40,9 @@ class LogInput extends Component {
           <p><input type='submit'/></p>
         </form>
       </div>
+
     )
-  }
+}
 }
 
-export default LogInput;
+export default withRouter(LogInput);

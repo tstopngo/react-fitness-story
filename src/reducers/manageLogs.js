@@ -17,14 +17,16 @@ export default function manageLogs(state={logs: [], comments: [], loading: false
       }
 
     case 'ADD_LOG':
-      const log = {
+       const log = {
          id: action.log.id,
          workouts: action.log.workouts,
          time: action.log.time,
-     }
+      }
 
      return{
-       ...state, logs: [...state.logs, log]
+       ...state,
+       logs: [...state.logs, log],
+       loading: false
      }
 
     case 'DELETE_LOG':
