@@ -17,13 +17,7 @@ class LogInput extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-
-    this.props.addLog(this.state).then(r=> r.json()).then(data => {
-      //if error, show error
-
-      //else
-    //  this.props.history.push('/logs')
-    })
+    this.props.addLog(this.state)
     this.props.history.push('/logs')
   }
 
