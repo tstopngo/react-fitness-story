@@ -18,6 +18,8 @@ class LogsContainer extends Component {
   render(){
     return(
       <div  className='App-body'>
+      <Home/>
+      <Home/>
       <Switch>
         <Route exact path ='/' component={Home}/>
         <Route exact path='/logs/new' render={(...routerprops) => <LogInput addLog={this.props.addLog}/>}/>
