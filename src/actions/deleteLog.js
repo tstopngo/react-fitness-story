@@ -4,7 +4,7 @@ const deleteLog = (data) => {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     },
-      method: 'DELTEE',
+      method: 'DELETE',
       body: JSON.stringify({log: data})
   })
     .then(response => response.json())
