@@ -8,7 +8,7 @@ const deleteLog = (data) => {
       body: JSON.stringify({log: data})
   })
     .then(response => response.json())
-    .then(log => dispatch({type: 'ADD_LOG', log: log})
+    .then(log => dispatch({type: 'DELETE LOG', log: log})
     )
 }
 }
